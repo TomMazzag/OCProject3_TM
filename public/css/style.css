@@ -526,12 +526,21 @@ input[type=search]::-webkit-search-results-decoration {
   cursor: pointer;
   position: relative;
 }
+@keyframes spin {
+    from {
+      transform: rotate(0deg);
+    }
+
+    to {
+      transform: rotate(360deg);
+    }
+}
 @media (pointer: fine) {
   .dish:hover {
     box-shadow: 0 8px 20px -4px #b6b6b6;
   }
   .dish:hover .dish__tick i {
-    transform: rotate(0deg);
+    animation: spin 1s forwards;
   }
   .dish:hover .dish__name {
     width: 70%;
@@ -550,7 +559,7 @@ input[type=search]::-webkit-search-results-decoration {
   padding: 10px;
   width: 85%;
   flex: none;
-  transition: width 2s ease-out;
+  transition: width 1s ease-out;
 }
 .dish__name h3:hover, .dish__name p {
   white-space: nowrap;
@@ -578,8 +587,7 @@ input[type=search]::-webkit-search-results-decoration {
 }
 .dish__tick i {
   color: #fff;
-  transform: rotate(-540deg);
-  transition: transform 2s ease-out;
+  transition: transform 1s ease-out;
 }
 .dish label {
   position: absolute;
@@ -589,6 +597,27 @@ input[type=search]::-webkit-search-results-decoration {
   width: 100%;
   height: 100%;
   cursor: pointer;
+}
+
+@media (min-width: 575px) {
+  .menu__form {
+    display: flex;
+    flex-direction: column;
+    max-width: 100%;
+  }
+
+  .menu__form .btn {
+    width: 20%;
+  }
+
+  .menu__content {
+    display: flex;
+    justify-content: space-evenly;
+  }
+
+  .menu__content .section {
+    width: 30%;
+  }
 }
 
 /*# sourceMappingURL=style.css.map */
